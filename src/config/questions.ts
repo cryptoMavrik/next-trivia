@@ -21,25 +21,25 @@ export const questions: QuestionType[] = [
     },
     {
         id: 2,
-        phrase: "Who created Bitcoin?",
+        phrase: "Who created Ethereum?",
         choices: {
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
             4: "Vitalik Buterin"
         },
-        correctAnswer: 1
+        correctAnswer: 4
     },
     {
         id: 3,
-        phrase: "Who created Bitcoin?",
+        phrase: "Who is Satoshi Nakamoto?",
         choices: {
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
             4: "Vitalik Buterin"
         },
-        correctAnswer: 1
+        correctAnswer: 2
     },
     {
         id: 4,
