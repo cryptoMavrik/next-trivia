@@ -35,9 +35,9 @@ export const questions: QuestionType[] = [
         phrase: "Who is Satoshi Nakamoto?",
         choices: {
             1: "Satoshi Nakamoto",
-            2: "Craig Wright",
-            3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            2: "Linus Torvalds",
+            3: "Vitalik Buterin",
+            4: "Craig Wright"
         },
         correctAnswer: 2
     },
@@ -54,29 +54,29 @@ export const questions: QuestionType[] = [
     },
     {
         id: 5,
-        phrase: "Who created Bitcoin?",
+        phrase: "What is the target block time for Ethereum?",
         choices: {
-            1: "Satoshi Nakamoto",
-            2: "Craig Wright",
-            3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            1: "1 hour",
+            2: "2 minutes",
+            3: "4 minutes",
+            4: "30 minutes"
         },
-        correctAnswer: 1
+        correctAnswer: 2
     },
     {
         id: 6,
-        phrase: "Who created Bitcoin?",
+        phrase: "Which is true about the ERC1155 protocol?",
         choices: {
-            1: "Satoshi Nakamoto",
-            2: "Craig Wright",
-            3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            1: "Enables NFTs",
+            2: "Enables Semi-fungible tokens",
+            3: "Creates ERC20 tokens",
+            4: "Makes gas cheaper for transactions"
         },
         correctAnswer: 2
     },
     {
         id: 7,
-        phrase: "Who created Bitcoin?",
+        phrase: "Question 7?",
         choices: {
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
@@ -87,7 +87,7 @@ export const questions: QuestionType[] = [
     },
     {
         id: 8,
-        phrase: "Who created Bitcoin?",
+        phrase: "Question 8?",
         choices: {
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
@@ -98,7 +98,7 @@ export const questions: QuestionType[] = [
     },
     {
         id: 9,
-        phrase: "Who created Bitcoin?",
+        phrase: "question 9?",
         choices: {
             1: "Satoshi Nakamoto",
             2: "Craig Wright",

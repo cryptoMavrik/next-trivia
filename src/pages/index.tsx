@@ -1,7 +1,8 @@
 import { useWeb3React } from "@web3-react/core";
 import type { NextPage } from "next";
+import { sendError } from "next/dist/server/api-utils";
 import Head from "next/head";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BASE_EXPLORER_URL } from "../config/chainInfo";
 import { questions } from "../config/questions";
 import useLogin from "../hooks/useLogin";
@@ -11,9 +12,22 @@ const Home: NextPage = () => {
   const { account, active } = useWeb3React();
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
+  const usedQuestions = useRef<any[]>([])
   const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>();
-  const [questionId, setQuestionId] = useState(1);
+  const [questionId, setQuestionId] = useState(Math.floor(Math.random() * 100 % 10));
   const [toggleResults, setToggleResults] = useState(false);
+
+  const getNextQuestion = () => {
+    let randomNumber = Math.floor(Math.random() * 100 % 10)
+    if (randomNumber === 0) {
+      randomNumber = randomNumber + 1
+    }
+    if (usedQuestions.current.includes(randomNumber)) {
+      randomNumber = Math.floor(Math.random() * 100 % 10)
+    }
+    console.log("USED", usedQuestions.current, randomNumber);
+    setQuestionId(randomNumber)
+  }
 
   const handleSelect = (selection: number) => {
     setSelectedAnswer(selection);
@@ -30,9 +44,10 @@ const Home: NextPage = () => {
 
   const handleNewGame = () => {
     if (round === 4) {
+      usedQuestions.current = []
       setScore(0);
       setRound(1);
-      setQuestionId(1);
+      getNextQuestion();
       setSelectedAnswer(undefined);
       setToggleResults(false);
       return;
@@ -44,12 +59,12 @@ const Home: NextPage = () => {
       setToggleResults(false);
       return;
     } else {
-      const newQuestionId = questionId + 1;
-      setQuestionId(newQuestionId);
+      usedQuestions.current.push(questionId)
+      getNextQuestion()
       setSelectedAnswer(undefined);
       setToggleResults(false);
     }
-    if (questionId >= 3 * round && round <= 3) {
+    if (usedQuestions.current.length >= 3 * round && round <= 3) {
       setRound((prev) => prev + 1);
     }
   };
@@ -159,10 +174,13 @@ const Home: NextPage = () => {
                         {toggleResults ? (
                           <div className="flex flex-col w-full items-center justify-center">
                             {selectedAnswer === question.correctAnswer ? (
-                              <div className="flex flex-col items-center justify-center text-green-500 font-bold text-xl">
-                                <span className="p-5">You got it right!</span>
-                                <div className="flex w-full h-[5rem] p-5 border border-blue-100 justify-start items-center rounded-xl text-blue-200 font-semibold">
-                                  Answer: {question.choices[selectedAnswer]}
+                              <div className="flex flex-col items-center justify-center font-bold text-xl">
+                                <span className="p-5 text-green-500">
+                                  Good Job!
+                                </span>
+                                <div className="p-3">Correct Answer:</div>
+                                <div className="flex w-full h-[5rem] p-5 border border-blue-100 justify-center items-center rounded-xl text-blue-200 font-semibold">
+                                  {question.choices[question.correctAnswer]}
                                 </div>
                               </div>
                             ) : (
