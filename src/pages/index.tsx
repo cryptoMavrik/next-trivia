@@ -1,16 +1,17 @@
+import { useWeb3React } from '@web3-react/core'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import useLogin from '../hooks/useLogin'
-import { useWeb3React } from '@web3-react/core'
+import { useState } from 'react'
 import { BASE_EXPLORER_URL } from '../config/chainInfo'
-import { useRef, useState } from 'react'
-import { questions, QuestionType } from '../config/questions'
+import { questions } from '../config/questions'
+import useLogin from '../hooks/useLogin'
 
 const Home: NextPage = () => {
   const { login, logout } = useLogin()
   const { account, active } = useWeb3React()
   const [score, setScore] = useState(0)
   const [round, setRound] = useState(1)
+  const [newRound, setNewRound] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState<number | undefined>()
   const [questionCount, setQuestionCount] = useState(1)
   const [toggleResults, setToggleResults] = useState(false)
@@ -22,12 +23,15 @@ const Home: NextPage = () => {
   }
 
   const handleSubmit = () => {
-    if (selectedAnswer === questions[questionCount]?.correctAnswer) {
-      console.log("You got it");
-      setScore((prev) => prev + 100 * round)
+    console.log("Submitted answer", selectedAnswer);
+    console.log("Correct answer", questions[questionCount - 1]?.correctAnswer);
+
+    if (selectedAnswer === questions[questionCount - 1].correctAnswer) {
+      console.log("You got it", round);
+      setScore((prev) => prev + (100 * round))
     } else {
       console.log("Failed");
-      setScore((prev) => prev - 100 * round)
+      setScore((prev) => prev - (100 * round))
 
     }
     setToggleResults(true)
@@ -42,7 +46,11 @@ const Home: NextPage = () => {
       setQuestionCount(newQuestionCount)
       setSelectedAnswer(undefined)
       setToggleResults(false)
-      console.log(questionCount);
+    }
+    if (questionCount >= 3 * round && round <= 3) {
+      console.log("New round");
+
+      setRound((prev) => prev + 1)
     }
 
   }
@@ -57,7 +65,15 @@ const Home: NextPage = () => {
       </Head>
       <main className='text-blue-500 bg-[#050608]'>
         <div className='container m-auto w-full min-h-screen flex flex-col justify-center items-center'>
-          <div className='flex flex-col w-full md:w-2/3 lg:w-1/2 bg-gradient-to-t from-[#090b0e] to-[#10141a] rounded-md h-[50vh] justify-start items-center p-[2rem]'>
+          <div className='flex w-full md:w-2/3 lg:w-3/5  text-lg justify-between'>
+            <p>
+              Round {round}
+            </p>
+            <p>
+              Points: {100 * round}
+            </p>
+          </div>
+          <div className='flex flex-col w-full md:w-2/3 lg:w-3/5 bg-gradient-to-t from-[#090b0e] to-[#10141a] rounded-xl justify-start items-center p-[4rem]'>
             <h1 className='text-5xl font-bold text-blue-400'>
               Blockchain Trivia
             </h1>
@@ -134,7 +150,7 @@ const Home: NextPage = () => {
                                       <div className='p-3'>
                                         Correct Answer:
                                       </div>
-                                      <div className='flex w-full h-[5rem] p-5 border border-blue-100 justify-start items-center rounded-xl text-blue-200 font-semibold'>
+                                      <div className='flex w-full h-[5rem] p-5 border border-blue-100 justify-center items-center rounded-xl text-blue-200 font-semibold'>
                                         {question.choices[question.correctAnswer]}
                                       </div>
                                     </div>}
