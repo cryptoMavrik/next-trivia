@@ -10,6 +10,11 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+main {
+  background-image: url("/dots.png");
+  background-size: contain;
+}
+
 a {
   color: inherit;
   text-decoration: none;
