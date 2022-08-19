@@ -1,4 +1,4 @@
-type QuestionType = {
+export type QuestionType = {
     id: number;
     phrase: string;
     choices: {
@@ -10,6 +10,39 @@ type QuestionType = {
 export const questions: QuestionType[] = [
     {
         id: 1,
+        phrase: "Who created Bitcoin?",
+        choices: {
+            1: "Satoshi Nakamoto",
+            2: "Craig Wright",
+            3: "Linus Torvalds",
+            4: "Vitalik Buterin"
+        },
+        correctAnswer: 1
+    },
+    {
+        id: 2,
+        phrase: "Who created Bitcoin?",
+        choices: {
+            1: "Satoshi Nakamoto",
+            2: "Craig Wright",
+            3: "Linus Torvalds",
+            4: "Vitalik Buterin"
+        },
+        correctAnswer: 1
+    },
+    {
+        id: 3,
+        phrase: "Who created Bitcoin?",
+        choices: {
+            1: "Satoshi Nakamoto",
+            2: "Craig Wright",
+            3: "Linus Torvalds",
+            4: "Vitalik Buterin"
+        },
+        correctAnswer: 1
+    },
+    {
+        id: 4,
         phrase: "Who created Bitcoin?",
         choices: {
             1: "Satoshi Nakamoto",
