@@ -16,20 +16,13 @@ const Home: NextPage = () => {
   const [toggleResults, setToggleResults] = useState(false);
 
   const handleSelect = (selection: number) => {
-    console.log("Selection", selection);
-
     setSelectedAnswer(selection);
   };
 
   const handleSubmit = () => {
-    console.log("Submitted answer", selectedAnswer);
-    console.log("Correct answer", questions[questionId - 1]?.correctAnswer);
-
     if (selectedAnswer === questions[questionId - 1].correctAnswer) {
-      console.log("You got it", round);
       setScore((prev) => prev + 100 * round);
     } else {
-      console.log("Failed");
       setScore((prev) => prev - 100 * round);
     }
     setToggleResults(true);
@@ -57,8 +50,6 @@ const Home: NextPage = () => {
       setToggleResults(false);
     }
     if (questionId >= 3 * round && round <= 3) {
-      console.log("New round");
-
       setRound((prev) => prev + 1);
     }
   };
