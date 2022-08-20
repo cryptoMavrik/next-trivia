@@ -3,6 +3,7 @@ import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } fro
 import { useCallback } from "react";
 import { walletconnect } from "../config/connectorInfo";
 import { switchNetwork } from "../utils/switchNetwork";
+import useGame from "./useGame";
 
 export type Login = () => void;
 export type AuthType = {
@@ -14,6 +15,7 @@ export const connectorLocalStorageKey = "connectorId";
 
 const useLogin = (): AuthType => {
     const { activate, deactivate } = useWeb3React();
+    const { handleNext } = useGame()
 
     const login = useCallback(() => {
         try {

@@ -28,7 +28,7 @@ const Winner: React.FC<{
                             <h2 className="text-blue-300 text-3xl mb-[2rem]">
                                 You are a blockchain master!
                             </h2>
-                            <div className="text-3xl text-blue-300 border border-blue-200 p-5 my-[3rem] w-1/3 mt-2 rounded-3xl bg-[#090b0e] flex justify-center">
+                            <div className="text-3xl text-blue-300 border border-blue-200 p-5 my-[3rem] w-full xl:w-1/3 mt-2 rounded-3xl bg-[#090b0e] flex justify-center">
                                 <p className=" mr-auto">Score:</p>
                                 {score}
                             </div>

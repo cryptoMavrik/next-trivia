@@ -6,6 +6,11 @@ import Status from "./Status";
 const Connect: React.FC<{ handleNext: () => void }> = ({ handleNext }) => {
     const { login } = useLogin();
 
+    const handleLogin = () => {
+        login()
+        handleNext()
+    }
+
     return (
         <div>
             <Head>
@@ -29,7 +34,7 @@ const Connect: React.FC<{ handleNext: () => void }> = ({ handleNext }) => {
                             <span className="p-3 text-2xl ">Connect wallet to play!</span>
                             <button
                                 className="rounded-md bg-blue-700 w-auto px-[3rem] py-[.5rem] font-bold text-xl hover:bg-blue-600 transition-transform active:translate-y-1"
-                                onClick={login}
+                                onClick={handleLogin}
                             >
                                 Connect
                             </button>
