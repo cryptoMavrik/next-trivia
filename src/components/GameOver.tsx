@@ -1,9 +1,11 @@
-import Head from 'next/head'
-import React from 'react'
-import useGame from '../hooks/useGame'
-import Status from './Status'
+import Head from "next/head";
+import React from "react";
+import Status from "./Status";
 
-const GameOver: React.FC<{ newGame: () => void, score: number }> = ({ newGame, score }) => {
+const GameOver: React.FC<{ newGame: () => void; score: number }> = ({
+    newGame,
+    score,
+}) => {
     return (
         <div>
             <Head>
@@ -35,7 +37,7 @@ const GameOver: React.FC<{ newGame: () => void, score: number }> = ({ newGame, s
                 </div>
             </main>
         </div>
-    )
-}
+    );
+};
 
-export default GameOver
+export default GameOver;

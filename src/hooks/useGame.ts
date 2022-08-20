@@ -10,8 +10,6 @@ const useGame = (): GameType => {
     const [selected, setSelected] = useState(0);
     const [showResults, setShowResults] = useState(false);
     const [used, setUsed] = useState<number[]>([]);
-    console.log("Strikes", strikes);
-
 
     const getNextQuestion = () => {
         let randomNumber = Math.floor((Math.random() * 100) % 10);
@@ -24,23 +22,24 @@ const useGame = (): GameType => {
     };
 
     const handleNewGame = () => {
-        setStrikes(0);
-        setQuestionId(0);
         setUsed([]);
+        setQuestionId(0);
         setScore(0);
         setRound(1);
+        setStrikes(0);
         setSelected(0);
         handleNext();
         setShowResults(false);
+        console.log("Strikes", strikes);
     };
 
     const handleSubmitAnswer = () => {
         if (questionId && selected === questions[questionId - 1].correctAnswer) {
-            const _score = score + 100 * round
+            const _score = score + 100 * round;
             setScore(_score);
         } else {
-            const _strikes = strikes + 1
-            const _score = score - 100 * round
+            const _strikes = strikes + 1;
+            const _score = score - 100 * round;
             console.log("STRIKES", _strikes);
 
             setStrikes(_strikes);

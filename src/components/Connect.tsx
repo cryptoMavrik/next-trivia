@@ -2,9 +2,7 @@ import React from "react";
 import useLogin from "../hooks/useLogin";
 import Status from "./Status";
 
-const Connect: React.FC<{ handleNext: () => void }> = ({
-    handleNext,
-}) => {
+const Connect: React.FC<{ handleNext: () => void }> = ({ handleNext }) => {
     const { login } = useLogin();
 
     return (

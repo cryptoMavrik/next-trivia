@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { Dispatch, SetStateAction } from "react";
-import { NUMBER_OF_ROUNDS } from "../config";
 import Status from "./Status";
+import { NUMBER_OF_ROUNDS } from "../config";
 
 const HowToPlay: React.FC<{ showHelp: Dispatch<SetStateAction<boolean>> }> = ({
     showHelp,
@@ -55,15 +55,21 @@ const HowToPlay: React.FC<{ showHelp: Dispatch<SetStateAction<boolean>> }> = ({
                         <div className="grid lg:grid-cols-3 justify-center items-center pb-[2rem] text-blue-200 text-lg w-full px-[2rem]">
                             <div className="flex flex-col justify-center items-center pb-[2rem] text-xl w-full px-[2rem]">
                                 Round 1
-                                <div className="text-lg lg:text-3xl text-blue-300">100 points</div>
+                                <div className="text-lg lg:text-3xl text-blue-300">
+                                    100 points
+                                </div>
                             </div>
                             <div className="flex flex-col justify-center items-center pb-[2rem] text-xl w-full px-[2rem]">
                                 Round 2
-                                <div className="text-lg lg:text-3xl text-blue-300">200 points</div>
+                                <div className="text-lg lg:text-3xl text-blue-300">
+                                    200 points
+                                </div>
                             </div>
                             <div className="flex flex-col justify-center items-center pb-[2rem] text-xl w-full px-[2rem]">
                                 Round 3
-                                <div className="text-lg lg:text-3xl text-blue-300">300 points</div>
+                                <div className="text-lg lg:text-3xl text-blue-300">
+                                    300 points
+                                </div>
                             </div>
                         </div>
                         <button

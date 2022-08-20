@@ -22,10 +22,9 @@ const Home: NextPage = () => {
     selected,
     setSelected,
   } = useGame();
-  let selection = selected;
+  const selection = selected;
   const [showHelp, setShowHelp] = useState(true);
-  const { active } = useWeb3React()
-
+  const { active } = useWeb3React();
 
   if (round === 4) {
     return (
@@ -36,18 +35,21 @@ const Home: NextPage = () => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className="text-blue-500 bg-[#050608]">
-          <Status />
           <div className="container m-auto w-full min-h-screen flex flex-col justify-center items-center">
             <div className="flex flex-col w-full md:w-2/3 lg:w-3/5 bg-gradient-to-t from-[#090b0e] to-[#10141a] rounded-xl justify-start items-center p-[4rem]">
-              <h2 className="text-green-500 text-6xl font-bold mb-[2rem]">You made it!</h2>
-              <h2 className="text-blue-300 text-3xl mb-[2rem]">You are a blockchain master!</h2>
+              <h2 className="text-green-500 text-6xl font-bold mb-[2rem]">
+                You made it!
+              </h2>
+              <h2 className="text-blue-300 text-3xl mb-[2rem]">
+                You are a blockchain master!
+              </h2>
               <div className="text-3xl text-blue-300 border border-blue-200 p-5 my-[3rem] w-1/3 mt-2 rounded-3xl bg-[#090b0e] flex justify-center">
                 <p className=" mr-auto">Score:</p>
                 {score}
               </div>
               <div className="grid md:grid-cols-2 gap-5">
                 <button
-                  onClick={handleNewGame}
+                  onClick={() => { }}
                   className="rounded-md bg-blue-800 text-blue-200 w-auto px-[3rem] py-[.5rem] font-bold text-xl hover:bg-blue-600 transition-transform active:translate-y-1"
                   disabled={!active}
                 >
@@ -67,13 +69,11 @@ const Home: NextPage = () => {
     );
   }
   if (strikes === 3) {
-    return (
-      <GameOver />
-    )
+    return <GameOver newGame={handleNewGame} score={score} />;
   }
 
   if (!questionId) {
-    return <Connect handleNewGame={handleNext} />;
+    return <Connect handleNext={handleNext} />;
   }
 
   if (showHelp && questionId !== 0) {
@@ -93,8 +93,8 @@ const Home: NextPage = () => {
           <div className="flex w-full md:w-2/3 lg:w-3/5  text-lg justify-between">
             <p>Value: {100 * round}</p>
           </div>
-          <div className="flex flex-col w-full md:w-2/3 lg:w-3/5 min-h-[30rem] bg-gradient-to-t from-[#090b0e] to-[#10141a] rounded-xl justify-start items-center p-[4rem]">
-            <h1 className="text-3xl lg:text-6xl font-bold text-blue-400">
+          <div className="flex flex-col w-full md:w-2/3 lg:w-3/5 min-h-2/3 bg-gradient-to-t from-[#090b0e] to-[#10141a] rounded-xl justify-start items-center p-[2rem] md:p-[4rem]">
+            <h1 className="text-3xl lg:text-4xl xl:text-6xl font-bold text-blue-400">
               Blockchain Trivia
             </h1>
             <h2 className="text-blue-700 text-xl lg:text-2xl">Round {round}</h2>
@@ -124,7 +124,7 @@ const Home: NextPage = () => {
                                 Nope! Not Correct
                               </span>
                               <div className="p-3">Correct Answer:</div>
-                              <div className="flex w-full h-[5rem] p-5 border border-blue-100 justify-center items-center rounded-xl text-blue-200 font-semibold">
+                              <div className="flex w-full h-[5rem] p-5 border border-green-400 justify-center items-center rounded-xl text-blue-200 font-semibold">
                                 {question.choices[question.correctAnswer]}
                               </div>
                             </div>
@@ -143,7 +143,7 @@ const Home: NextPage = () => {
                             {question.phrase}
                           </h2>
                           <div className="p-5" />
-                          <div className="grid lg:grid-cols-2 gap-3 w-full m-auto justify-center rounded-xl overflow-hidden">
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 w-full m-auto justify-center rounded-xl overflow-hidden">
                             {Object.keys(question.choices).map(
                               (choice: string, index) => {
                                 return (
