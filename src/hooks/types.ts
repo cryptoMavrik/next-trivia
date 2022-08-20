@@ -2,6 +2,15 @@ import { Dispatch, SetStateAction } from "react";
 
 type Handler = () => void;
 
+export interface GameState {
+    score: number;
+    round: number;
+    strikes: number;
+    questionId: number;
+    selected: number;
+    used: number[];
+}
+
 export type GameType = {
     score: number;
     round: number;
@@ -10,9 +19,8 @@ export type GameType = {
     questionId?: number;
     selected: number;
     showResults: boolean;
-    getNextQuestion: Handler;
     handleSubmitAnswer: Handler;
     handleNewGame: Handler;
     handleNext: Handler;
-    setSelected: Dispatch<SetStateAction<number>>;
+    setState: Dispatch<SetStateAction<GameState>>;
 };
