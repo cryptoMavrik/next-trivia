@@ -1,4 +1,4 @@
-## Blockchain Trivia Game
+# Blockchain Trivia Game
 
 Test your knowledge of blockchain history and technology!
 
@@ -6,7 +6,7 @@ Are you a Blockchain Master?
 
 ___
 
-# How to play
+## How to play
 
 - Select your answer from the choices and submit
 - There are 3 rounds to the game
@@ -15,7 +15,7 @@ ___
 - Incorrect answers deduct the current round's point value
 - Incorrectly answer 3 questions and game over
 
-# Installation
+## Installation
 
 Clone repo:
 
@@ -39,7 +39,7 @@ npm run dev
 yarn dev
 ```
 
-# Known Issues
+## Known Issues
 
 - Questions not randomized
 - WalletConnect throwing error if you disconnect wallet, click connect again, and close the QR modal
