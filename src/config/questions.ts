@@ -2,10 +2,10 @@ export type QuestionType = {
     id: number;
     phrase: string;
     choices: {
-        [key: number]: string
-    }
-    correctAnswer: number
-}
+        [key: number]: string;
+    };
+    correctAnswer: number;
+};
 
 export const questions: QuestionType[] = [
     {
@@ -15,9 +15,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 1
+        correctAnswer: 1,
     },
     {
         id: 2,
@@ -26,9 +26,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 4
+        correctAnswer: 4,
     },
     {
         id: 3,
@@ -37,9 +37,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Linus Torvalds",
             3: "Vitalik Buterin",
-            4: "Craig Wright"
+            4: "Craig Wright",
         },
-        correctAnswer: 2
+        correctAnswer: 2,
     },
     {
         id: 4,
@@ -48,9 +48,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 4
+        correctAnswer: 4,
     },
     {
         id: 5,
@@ -59,9 +59,9 @@ export const questions: QuestionType[] = [
             1: "1 hour",
             2: "2 minutes",
             3: "4 minutes",
-            4: "30 minutes"
+            4: "30 minutes",
         },
-        correctAnswer: 2
+        correctAnswer: 2,
     },
     {
         id: 6,
@@ -70,9 +70,9 @@ export const questions: QuestionType[] = [
             1: "Enables NFTs",
             2: "Enables Semi-fungible tokens",
             3: "Creates ERC20 tokens",
-            4: "Makes gas cheaper for transactions"
+            4: "Makes gas cheaper for transactions",
         },
-        correctAnswer: 2
+        correctAnswer: 2,
     },
     {
         id: 7,
@@ -81,9 +81,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 2
+        correctAnswer: 2,
     },
     {
         id: 8,
@@ -92,9 +92,9 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 4
+        correctAnswer: 4,
     },
     {
         id: 9,
@@ -103,8 +103,8 @@ export const questions: QuestionType[] = [
             1: "Satoshi Nakamoto",
             2: "Craig Wright",
             3: "Linus Torvalds",
-            4: "Vitalik Buterin"
+            4: "Vitalik Buterin",
         },
-        correctAnswer: 1
+        correctAnswer: 1,
     },
-]
+];

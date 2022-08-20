@@ -1,11 +1,7 @@
 import { UnsupportedChainIdError, useWeb3React } from "@web3-react/core";
-import {
-    UserRejectedRequestError as UserRejectedRequestErrorWalletConnect
-} from "@web3-react/walletconnect-connector";
+import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from "@web3-react/walletconnect-connector";
 import { useCallback } from "react";
-import {
-    walletconnect
-} from "../config/connectorInfo";
+import { walletconnect } from "../config/connectorInfo";
 import { switchNetwork } from "../utils/switchNetwork";
 
 export type Login = () => void;
@@ -25,25 +21,25 @@ const useLogin = (): AuthType => {
                 if (error instanceof UnsupportedChainIdError) {
                     await switchNetwork(1);
                     alert("Unsupported Chain Id. Check wallet and try again.");
-                } else if (
-                    error instanceof UserRejectedRequestErrorWalletConnect
-                ) {
+                } else if (error instanceof UserRejectedRequestErrorWalletConnect) {
                     walletconnect.walletConnectProvider = undefined;
                     window.localStorage.removeItem(connectorLocalStorageKey);
                     return;
                 } else {
                     console.log(error.message);
-
                 }
             })
                 .then(() => {
-                    window?.localStorage.setItem(connectorLocalStorageKey, "walletconnect");
+                    window?.localStorage.setItem(
+                        connectorLocalStorageKey,
+                        "walletconnect"
+                    );
                 })
                 .catch((e: any) => {
                     alert(e.error ? e.error.message : e.message);
                 });
         } catch (error: any) {
-            alert(error.message)
+            alert(error.message);
         }
     }, [activate]);
 
