@@ -2,8 +2,8 @@ import React from "react";
 import useLogin from "../hooks/useLogin";
 import Status from "./Status";
 
-const Connect: React.FC<{ handleNewGame: () => void }> = ({
-    handleNewGame,
+const Connect: React.FC<{ handleNext: () => void }> = ({
+    handleNext,
 }) => {
     const { login } = useLogin();
 
@@ -23,7 +23,7 @@ const Connect: React.FC<{ handleNewGame: () => void }> = ({
                     >
                         Connect
                     </button>
-                    <button className="pt-9 hover:text-blue-600" onClick={() => handleNewGame()}>
+                    <button className="pt-9 hover:text-blue-600" onClick={handleNext}>
                         Skip for now
                     </button>
                 </div>
