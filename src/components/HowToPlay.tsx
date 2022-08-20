@@ -26,30 +26,39 @@ const HowToPlay: React.FC<{ showHelp: Dispatch<SetStateAction<boolean>> }> = ({
                                 2. Click Submit
                             </span>
                         </div>
-                        <div className="flex justify-center items-center pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
-                            - {NUMBER_OF_ROUNDS} rounds
-                        </div>
-                        <div className="flex justify-center items-center pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
-                            - 3 questions per round
-                        </div>
-                        <div className="flex justify-center items-center pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
-                            - Incorrect answers deduct points
-                        </div>
-                        <div className="flex justify-center items-center pb-[3rem] text-blue-200 text-xl w-2/3 px-[2rem]">
-                            - 3 wrong answers = Game Over
+                        <h1 className="text-xl lg:text-2xl font-bold text-blue-400">
+                            Things to note
+                        </h1>
+                        <div className="grid grid-cols-1 justify-center items-start w-full">
+                            <div className="pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
+                                - {NUMBER_OF_ROUNDS} rounds
+                            </div>
+                            <div className="pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
+                                - 3 questions per round
+                            </div>
+                            <div className="pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
+                                - Correct answers add points to total
+                            </div>
+                            <div className="pb-[.5rem] text-blue-200 text-xl w-2/3 px-[2rem]">
+                                - Incorrect answers deduct points from total
+                            </div>
+                            <div className="pb-[3rem] text-blue-200 text-xl w-2/3 px-[2rem]">
+                                - 3 wrong answers = Game Over
+                            </div>
                         </div>
                         <div className="flex justify-center items-center pb-[1rem] text-blue-500 font-bold text-3xl w-2/3 px-[2rem]">
                             Scoring
                         </div>
                         <div className="grid md:grid-cols-3 justify-center items-center pb-[2rem] text-blue-200 text-lg w-full px-[2rem]">
-                            <div className="flex flex-col justify-center items-center pb-[3rem] text-blue-200 text-xl w-full px-[2rem]">
-                                Round 1<div className="text-3xl">100 points</div>
+                            <div className="flex flex-col justify-center items-center pb-[3rem] text-xl w-full px-[2rem]">
+                                Round 1
+                                <div className="text-3xl text-blue-300">100 points</div>
                             </div>
-                            <div className="flex flex-col justify-center items-center pb-[3rem] text-blue-200 text-xl w-full px-[2rem]">
-                                Round 2<div className="text-3xl">200 points</div>
+                            <div className="flex flex-col justify-center items-center pb-[3rem] text-xl w-full px-[2rem]">
+                                Round 2<div className="text-3xl text-blue-300">200 points</div>
                             </div>
-                            <div className="flex flex-col justify-center items-center pb-[3rem] text-blue-200 text-xl w-full px-[2rem]">
-                                Round 3<div className="text-3xl">300 points</div>
+                            <div className="flex flex-col justify-center items-center pb-[3rem] text-xl w-full px-[2rem]">
+                                Round 3<div className="text-3xl text-blue-300">300 points</div>
                             </div>
                         </div>
                         <button
