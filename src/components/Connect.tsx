@@ -12,6 +12,9 @@ const Connect: React.FC<{ handleNext: () => void }> = ({ handleNext }) => {
                 <h1 className="text-3xl lg:text-6xl font-bold text-blue-400">
                     BLOCKCHAIN TRIVIA
                 </h1>
+                <h2 className="text-lg lg:text-xl">
+                    Are you a blockchain master?
+                </h2>
                 <div className="p-5" />
                 <div className="flex flex-col w-full h-full justify-center items-center p-5 text-blue-200">
                     <span className="p-3 text-2xl ">Connect wallet to play!</span>
