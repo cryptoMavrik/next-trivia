@@ -4,8 +4,6 @@ Test your knowledge of blockchain history and technology!
 
 Are you a Blockchain Master?
 
-___
-
 ## How to play
 
 - Select your answer from the choices and submit
